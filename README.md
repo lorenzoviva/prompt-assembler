@@ -13,7 +13,7 @@ For instance by providing this snippet:
 It would output:
 
 ````md
-## Content scripts Swiper JS file:
+## Content scripts JS file:
 ```js
 // === constants ===
 const CONTENT_DELAY = 1000;

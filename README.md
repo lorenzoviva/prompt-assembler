@@ -1,32 +1,40 @@
-# Prompt Assembler 
+# Prompt Assembler
 
-Prompt Assembler is a simple python script that takes a markdown file in input and outputs the same file but with every link pointing to a local file replaced with a fenced codeblock containing the code itself. 
+**Prompt Assembler** is a Python script that takes a Markdown file as input and produces a new Markdown file where every link to a **local file** is replaced with a fenced code block containing the contents of that file.
 
-For instance by providing this snippet:
+---
+
+### Example
+
+Input (`README.md`):
 
 ```md
 ## Content script JS file:
-[content.js](../content/content.js) 
+[content.js](../content/content.js)
 ```
 
-
-It would output:
+Output:
 
 ````md
-## Content scripts JS file:
+## Content script JS file:
 ```js
 // === constants ===
 const CONTENT_DELAY = 1000;
 ...
+```
 ````
 
-including the whole "content.js" file content inside the fenced codeblock
+The script automatically detects the file type (based on extension) and sets the correct language tag for the code fence.
 
-### Example usage:
+---
 
-Place the script inside the same folder where you have the file you want to assemble.
-Run the following command in a terminal:
+### Usage
 
+1. Place the script in the same folder as the Markdown file you want to process.
+2. Run the script from the terminal:
+
+```bash
+python assemble.py input.md output.md
 ```
-python .\assemble.py codebase.md codebase_assembled.md
-```
+
+This will create `output.md` where all local file links have been replaced with embedded code blocks.
